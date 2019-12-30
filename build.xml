@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="demo for ant" default="deploytarget">
+<property name="targetdir" value="/Users/i353111/Desktop" />
+
+   <target name="run" depends="compile">
+      <java classname="HelloWorld">
+          <classpath path="target" >
+       </classpath>
+       </java>
+   </target>
+
+   <target name="compile">
+       <javac  includeantruntime="false" srcdir="./src" destdir="target">
+       </javac>
+   </target>
+    
+   <target name="wartarget" depends="run">
+       <war warfile="target.war" needxmlfile="false">
+          <fileset dir="target" />
+        </war> 
+   </target>
+   
+   <target name="deploytarget" depends="wartarget">
+       
+       <copy file="target.war" todir="${targetdir}">
+       </copy>
+   
+   </target>
+     
+
+</project>
