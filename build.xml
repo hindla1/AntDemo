@@ -15,13 +15,13 @@
        </javac>
    </target>
     
-   <target name="wartarget" depends="run">
+   <target name="wartarget" >
        <war warfile="target.war" needxmlfile="false">
           <fileset dir="target" />
         </war> 
    </target>
    
-   <target name="deploytarget" depends="wartarget">
+   <target name="deploytarget" >
        
        <copy file="target.war" todir="${targetdir}">
        </copy>
